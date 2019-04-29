@@ -1,0 +1,70 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+           <div class=" mdl-card mdl-shadow--2dp mdl-cell--12-col">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text" align="center_focus_strong">Bem-Vindo</h2>
+              </div>
+            
+            <div class="mdl-card__actions mdl-card--border">
+             </div>
+               <div class="mdl-card__menu">
+                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                 <i class="material-icons">share</i>
+                </button>
+               </div>
+           </div>
+
+          <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+          <div class="table mdl-color--white">
+            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+               <thead>
+                  <tr>
+                <th class="mdl-data-table__cell--non-numeric ">Funcionario</th>
+                  <th>CH/semana</th>
+                  <th>Função</th>
+                  <th>Ver Mais</th>
+                </tr>
+             </thead>
+              <tbody>
+
+              {% for funcionario in funcionarios%}
+
+                <tr>
+                 <td class="mdl-data-table__cell--non-numeric">{{funcionario.nome}}</td>
+                  <td>{{funcionario.cargaH}}</td>
+                  <td>{{funcionario.funcao}}</td>
+                  <td>
+                        <a class="mdl-navigation__link" href="{% url 'morefunc' pk=funcionario.pk %}"><i class=" material-icons" role="presentation">search</i></a>
+                  </td>
+                </tr>
+
+                {%endfor%}
+              </tbody>
+
+            </table>
+
+
+            </div>
+         
+  
+          </div>
+          
+          <div class="cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell---col mdl-cell---col-tablet mdl-cell--12-col-desktop">
+             <div class="mdl-card__actions mdl-card--border mdl-color--purple-400">
+              <div class="mdl-card__title">
+                <p class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--black">Resultado:<b> {{resultado}}</b></p>
+              </div>
+             </div>
+             <h4 align="center" style="padding: 100 100px">{{pergunta}} </h4>
+              <a class="mdl-navigation__link" href="{% url 'polls:detail' 1 %}"><i class=" material-icons" role="presentation">search</i>Vote para {{pergunta}}</a>
+
+                 </div>    
+             </div>       
+          </div>
+
+{% endblock %}

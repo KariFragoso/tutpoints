@@ -1,0 +1,41 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+
+ <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+          <div class="table mdl-color--white">
+            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+               <thead>
+                  <tr>
+                <th class="mdl-data-table__cell--non-numeric ">Funcionario</th>
+                  <th>Data</th>
+                  <th>Entrada1</th>
+                  <th>Saída1</th>
+                  <th>Entrada2</th>
+                  <th>Saída2</th>
+                </tr>
+             </thead>
+              <tbody>
+
+              {% for ponto in pontos%}
+
+                <tr>
+                 <td class="mdl-data-table__cell--non-numeric">{{ponto.funcionario}}</td>
+					<td>{{ponto.data}}</td>
+					<td>{{ponto.horaEnt1}}</td>
+					<td>{{ponto.horaSaida1}}</td>
+					<td>{{ponto.horaEnt2}}</td>
+					<td>{{ponto.horaSaida2}}</td>
+                </tr>
+
+                {%endfor%}
+              </tbody>
+
+            </table>
+
+
+            </div>
+         
+  
+          </div>
+{% endblock %}

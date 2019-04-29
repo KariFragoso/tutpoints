@@ -1,0 +1,63 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+
+<div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+          <div class="table mdl-color--white">
+            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+               <thead>
+                  <tr>
+                <th class="mdl-data-table__cell--non-numeric ">Funcionario</th>
+                 </tr>
+             </thead>
+              <tbody>
+
+            
+
+                <tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Nome:</b> {{funcionario.nome}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Cargo:</b> {{funcionario.funcao}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Data de Nascimento:</b> {{funcionario.dataNasc}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Carga Horária:</b> {{funcionario.cargaH}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Data de Admissão:</b> {{funcionario.data_admissao}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>PIS:</b> {{funcionario.pis}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>RG:</b> {{funcionario.rg}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Gênero:</b> {{funcionario.genero}}</td>
+				</tr>
+
+				<tr>
+                 <td class="mdl-data-table__cell--non-numeric"><b>Email:</b> {{funcionario.email}}</td>
+				</tr>
+                
+              </tbody>
+
+            </table>
+
+
+            </div>
+         
+  
+          </div>
+
+{% endblock %}

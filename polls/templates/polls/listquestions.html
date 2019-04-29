@@ -1,0 +1,41 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+
+	 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+          <div class="table mdl-color--white">
+            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+               <thead>
+                  <tr>
+                <th class="mdl-data-table__cell--non-numeric ">id</th>
+                  <th>Pergunta</th>
+                   <th>Opções</th>
+              
+                </tr>
+             </thead>
+              <tbody>
+
+              {% for question in questions%}
+
+                <tr>
+                 <td class="mdl-data-table__cell--non-numeric">{{question.pk}}</td>
+                   <td>{{question.question_text}}</td>
+                  <td>
+                    <a class="mdl-navigation__link" href= "{% url 'polls:editquestion' pk=question.pk %}"><i class="material-icons" role="presentation">create</i></a>
+                   	<a class="mdl-navigation__link" href= "{% url 'polls:deletequestion' pk=question.pk %}"><i class="material-icons" role="presentation">delete</i></a>
+
+                  </td>
+                </tr>
+
+                {%endfor%}
+              </tbody>
+
+            </table>
+
+
+            </div>
+         
+  
+          </div>
+
+{% endblock %}

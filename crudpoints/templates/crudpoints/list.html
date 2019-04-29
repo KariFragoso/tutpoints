@@ -1,0 +1,41 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+
+	 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+          <div class="table mdl-color--white">
+            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+               <thead>
+                  <tr>
+                <th class="mdl-data-table__cell--non-numeric ">Funcionario</th>
+                  <th>Função</th>
+                  <th>Opções</th>
+                </tr>
+             </thead>
+              <tbody>
+
+              {% for funcionario in funcionarios%}
+
+                <tr>
+                 <td class="mdl-data-table__cell--non-numeric">{{funcionario.nome}}</td>
+                   <td>{{funcionario.funcao}}</td>
+                  <td>
+                    <a class="mdl-navigation__link" href= "{% url 'editfunc' pk=funcionario.pk %}"><i class="material-icons" role="presentation">create</i></a>
+                   	<a class="mdl-navigation__link" href= "{% url 'deletefunc' pk=funcionario.pk %}"><i class="material-icons" role="presentation">delete</i></a>
+                     <a class="mdl-navigation__link" href="{% url 'relatorioespecifico' pk=funcionario.pk %}"><i class=" material-icons" role="presentation">description</i></a>
+                     <a class="mdl-navigation__link" href="{% url 'morefunc' pk=funcionario.pk %}"><i class=" material-icons" role="presentation">search</i></a>
+                  </td>
+                </tr>
+
+                {%endfor%}
+              </tbody>
+
+            </table>
+
+
+            </div>
+         
+  
+          </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'crudpoints/base.html' %}
+
+{% block content %}
+
+<div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+            <div class="table mdl-color--white">
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+
+{% endblock %}
