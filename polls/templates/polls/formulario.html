@@ -1,16 +1,15 @@
 {% extends 'crudpoints/base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
 
 
 		<form method="POST" class="post-form">{% csrf_token %}
-      		{{ form.as_table}}
-       		<button type="submit" class="save btn btn-default">Save</button>
+      		{{ form|crispy }}
+       		<button type="submit" class="save btn btn-default">Salvar</button>
    		</form>
 
-			<div class="table mdl-color--white">
-            </div>
+			
 
 </div>           
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+   <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
           <div class="table mdl-color--white">
             <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
                <thead>
@@ -21,7 +21,7 @@
                    <td>{{funcionario.funcao}}</td>
                   <td>
                     <a class="mdl-navigation__link" href= "{% url 'editfunc' pk=funcionario.pk %}"><i class="material-icons" role="presentation">create</i></a>
-                   	<a class="mdl-navigation__link" href= "{% url 'deletefunc' pk=funcionario.pk %}"><i class="material-icons" role="presentation">delete</i></a>
+                    <a class="mdl-navigation__link" href= "{% url 'deletefunc' pk=funcionario.pk %}"><i class="material-icons" role="presentation">delete</i></a>
                      <a class="mdl-navigation__link" href="{% url 'relatorioespecifico' pk=funcionario.pk %}"><i class=" material-icons" role="presentation">description</i></a>
                      <a class="mdl-navigation__link" href="{% url 'morefunc' pk=funcionario.pk %}"><i class=" material-icons" role="presentation">search</i></a>
                   </td>

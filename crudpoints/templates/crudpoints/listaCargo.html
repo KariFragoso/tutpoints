@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+   <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
           <div class="table mdl-color--white">
             <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
                <thead>
@@ -20,7 +20,7 @@
                    <td>{{cargo.departamento}}</td>
                   <td>
                     <a class="mdl-navigation__link" href= "{% url 'editcargo' pk=cargo.pk %}"><i class="material-icons" role="presentation">create</i></a>
-                   	<a class="mdl-navigation__link" href= "{% url 'deletecargo' pk=cargo.pk %}"><i class="material-icons" role="presentation">delete</i></a>
+                    <a class="mdl-navigation__link" href= "{% url 'deletecargo' pk=cargo.pk %}"><i class="material-icons" role="presentation">delete</i></a>
                     
                   </td>
                 </tr>

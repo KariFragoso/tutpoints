@@ -1,20 +1,15 @@
 {% extends 'crudpoints/base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
             <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
-            <div class="table mdl-color--white">
-              <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
-      
-                    <tr>
-                    <h5>Bater Ponto Diário</h5>
-   					 <form method="POST" class="post-form">{% csrf_token %}
-      				  {{ form.as_table}}
-       				 <button type="submit" class="save btn btn-default">Save</button>
-   					 </form>
-   					</tr>
-   				</table>
-                </div>
+           
+				<h5>Bater Ponto Diário</h5>
+             <form method="POST" class="post-form">{% csrf_token %}
+                {{ form|crispy }}
+               <button type="submit" class="save btn btn-default">Salvar</button>
+             </form>
+         
               
             </div>
 

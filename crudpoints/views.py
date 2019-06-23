@@ -5,6 +5,7 @@ from .forms import FuncForm, PontoForm, CargoForm
 from polls.models import Choice, Question
 import operator
 from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def telainicial(request):
@@ -17,9 +18,12 @@ def telainicial(request):
 	funcionarios = Funcionario.objects.all()
 	return render(request, 'crudpoints/layout.html', {'funcionarios':funcionarios, 'resultado':first, 'pergunta':pergunta})
 
+
+@login_required
 def editarperfil(request):
 	return render(request, 'crudpoints/editprofile.html', {})
 
+@login_required
 def newfunc(request):
 	if request.method == "POST":
 		form = FuncForm(request.POST)
@@ -31,11 +35,12 @@ def newfunc(request):
 
 	return render(request, 'crudpoints/editFunc.html', {'form': form})
 
-
+@login_required
 def listafunc(request):
 	funcionarios = Funcionario.objects.all()
 	return render(request, 'crudpoints/list.html', {'funcionarios': funcionarios})
 
+@login_required
 def editfunc(request, pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
 	if request.method == "POST":
@@ -48,11 +53,13 @@ def editfunc(request, pk):
 		form = FuncForm(instance=funcionario)
 	return render(request, 'crudpoints/editFunc.html', {'form': form})
 
+@login_required
 def deletefunc(request,pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
 	funcionario.delete()
 	return redirect('listafunc')
 
+@login_required
 def pontonew(request):
 	
 	if request.method == "POST":
@@ -65,25 +72,27 @@ def pontonew(request):
 
 	return render(request, 'crudpoints/pontonew.html', {'form': form})
 
+@login_required
 def relatoriogeral(request):
 	pontos = Ponto.objects.all()
 	return render(request, 'crudpoints/relatorio.html', {'pontos':pontos})
 
 
 
-
+@login_required
 def relatorioespecifico(request,pk):
 	pontos = Ponto.objects.filter(funcionario_id=pk)
 	for ponto in pontos:
 		print("")
 	return render(request, 'crudpoints/relatorio.html', {'pontos':pontos})
 
+@login_required
 def morefunc(request,pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
 	return render(request, 'crudpoints/morefunc.html', {'funcionario': funcionario})
 
 
-
+@login_required
 def newcargo(request):
 	if request.method == "POST":
 		form = CargoForm(request.POST)
@@ -95,11 +104,12 @@ def newcargo(request):
 
 	return render(request, 'crudpoints/editCargo.html', {'form': form})
 
-
+@login_required
 def listacargo(request):
 	cargos = Cargo.objects.all()
 	return render(request, 'crudpoints/listaCargo.html', {'cargos': cargos})
 
+@login_required
 def editcargo(request, pk):
 	cargo = get_object_or_404(Cargo, pk=pk)
 	if request.method == "POST":
@@ -112,6 +122,7 @@ def editcargo(request, pk):
 		form = CargoForm(instance=cargo)
 	return render(request, 'crudpoints/editCargo.html', {'form': form})
 
+@login_required
 def deletecargo(request,pk):
 	cargo = get_object_or_404(Cargo, pk=pk)
 	cargo.delete()

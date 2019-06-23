@@ -1,5 +1,8 @@
-from django.urls import path
-from . import views
+from . import views 
+from django.urls import path, include
+from django.contrib import admin
+
+
 
 urlpatterns = [
     path('', views.telainicial, name='telainicial'),

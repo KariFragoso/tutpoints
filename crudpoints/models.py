@@ -23,9 +23,9 @@ class Funcionario(models.Model):
     email = models.EmailField(max_length=100, default=" ")
 
     GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('O', 'Others'),
+        ('M', 'Masculino'),
+        ('F', 'Feminino'),
+        ('O', 'Outros'),
     )
     genero = models.CharField(max_length=1, choices=GENDER_CHOICES, default=" ")
     
