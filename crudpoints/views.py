@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from .models import Funcionario, Ponto, Cargo
 from django.utils import timezone
-from .forms import FuncForm, PontoForm, CargoForm
+from .forms import FuncForm, PontoForm, CargoForm, ContatoForm
 from polls.models import Choice, Question
 import operator
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, BadHeaderError
+
+
+
 
 # Create your views here.
 def telainicial(request):
@@ -127,3 +131,23 @@ def deletecargo(request,pk):
 	cargo = get_object_or_404(Cargo, pk=pk)
 	cargo.delete()
 	return redirect('listacargo')
+
+def contato(request):
+    if request.method == 'GET':
+        email_form = ContatoForm()
+    else:
+        email_form = ContatoForm(request.POST)
+        if email_form.is_valid():
+            emissor = email_form.cleaned_data['emissor']
+            assunto = email_form.cleaned_data['assunto']
+            msg = email_form.cleaned_data['msg']
+            msg = msg+' Enviado por: '+emissor
+            try:
+                send_mail(assunto, msg, emissor, ['karileti.fragoso0@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse("Erro =/")
+            return redirect('obg')
+    return render(request, 'crudpoints/contato.html', {'form': email_form})
+
+def obg(request):
+    return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")

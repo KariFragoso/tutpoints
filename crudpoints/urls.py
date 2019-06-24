@@ -19,4 +19,7 @@ urlpatterns = [
     path('cargo/list', views.listacargo, name='listacargo'),
     path('cargo/<int:pk>/edit/', views.editcargo, name='editcargo'),
     path('cargo/<int:pk>/delete/', views.deletecargo, name='deletecargo'),
+
+    path('contato/', views.contato, name='contato'),
+    path('contato/obg', views.obg, name='obg'),
 ]
