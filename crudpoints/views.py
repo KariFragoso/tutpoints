@@ -1,13 +1,16 @@
-from django.shortcuts import render
 from .models import Funcionario, Ponto, Cargo
 from django.utils import timezone
-from .forms import FuncForm, PontoForm, CargoForm, ContatoForm
+from .forms import FuncForm, PontoForm, CargoForm, ContatoForm, SignUpForm
 from polls.models import Choice, Question
 import operator
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail, BadHeaderError
-
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 
 
@@ -34,6 +37,7 @@ def newfunc(request):
 		if form.is_valid():
 			funcionario = form.save(commit=False)
 			funcionario.save()
+			essages.success(request, 'Funcionário salvo com sucesso!')
 	else:
 		form = FuncForm()
 
@@ -71,6 +75,7 @@ def pontonew(request):
 		if form.is_valid():
 			ponto = form.save(commit=False)
 			ponto.save()
+			messages.success(request, 'O Novo Horário Ponto foi salvo com sucesso!')
 	else:
 		form = PontoForm()
 
@@ -93,6 +98,7 @@ def relatorioespecifico(request,pk):
 @login_required
 def morefunc(request,pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
+	essages.success(request, 'O Novo funcionário salvo com sucesso!')
 	return render(request, 'crudpoints/morefunc.html', {'funcionario': funcionario})
 
 
@@ -103,6 +109,7 @@ def newcargo(request):
 		if form.is_valid():
 			cargo= form.save(commit=False)
 			cargo.save()
+			messages.success(request, 'O cargo foi salvo com sucesso!')  # <-
 	else:
 		form = CargoForm()
 
@@ -121,7 +128,9 @@ def editcargo(request, pk):
 		if form.is_valid():
 			cargo = form.save(commit=False)
 			cargo.save()
+			messages.success(request, 'O cargo foi editado com sucesso!')
 			return redirect('listacargo')
+
 	else:
 		form = CargoForm(instance=cargo)
 	return render(request, 'crudpoints/editCargo.html', {'form': form})
@@ -150,4 +159,27 @@ def contato(request):
     return render(request, 'crudpoints/contato.html', {'form': email_form})
 
 def obg(request):
+	# fazer html para a pagina que agradece o contato
     return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('telainicial')
+    else:
+        form = SignUpForm()
+    return render(request, 'crudpoints/signup.html', {'form': form})
+
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    return JsonResponse(data)
+

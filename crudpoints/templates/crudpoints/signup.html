@@ -1,0 +1,40 @@
+
+{% extends 'crudpoints/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block javascript %}
+  <script>
+    $("#id_username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+
+<div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+	<div class="col-12">
+		<h5>Cadastre-se</h5>
+		<form method="POST" class="post-form">{% csrf_token %}
+			{{ form|crispy }}
+			<button type="submit" class="save btn btn-default">Salvar</button>
+		</form>
+    <br>
+	</div>
+</div>
+
+{% endblock %}

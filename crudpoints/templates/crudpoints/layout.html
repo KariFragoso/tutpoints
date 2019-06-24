@@ -11,17 +11,15 @@
             <div class="mdl-card__actions mdl-card--border">
              </div>
                <div class="mdl-card__menu">
-                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                 <i class="material-icons">share</i>
-                </button>
+
         </div>
       <p><b>
                     "A vitalidade é demonstrada não apenas pela persistência, mas pela capacidade de começar de novo." -F. Scott Fitzgerald
                 </b></p>
            </div>
 
-
-          <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+{% if user.is_authenticated %}
+          <div class=" mdl-cell mdl-cell--8-col">
           <div class="table mdl-color--white">
             <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
                <thead>
@@ -68,6 +66,7 @@
 
                  </div>
              </div>
+             {% endif %}
           </div>
 
 {% endblock %}

@@ -6,11 +6,19 @@
 
 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
 	<div class="col-12">
+		{% if messages %}
+
+ 				   {% for message in messages %}
+    				  <p class="{{ message.tags }}">{{ message }}</p>
+   					 {% endfor %}
+		{% endif %}
+
 		<h5>Editar/Criar Novo Funcionário</h5>
 		<form method="POST" class="post-form">{% csrf_token %}
 			{{ form|crispy }}
 			<button type="submit" class="save btn btn-default">Salvar</button>
 		</form>
+		<br>
 	</div>
 </div>
 

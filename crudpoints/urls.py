@@ -22,4 +22,8 @@ urlpatterns = [
 
     path('contato/', views.contato, name='contato'),
     path('contato/obg', views.obg, name='obg'),
+
+    path('cadastro/', views.signup, name='signup'),
+    path('ajax/validate_username', views.validate_username, name='validate_username'),
+
 ]
