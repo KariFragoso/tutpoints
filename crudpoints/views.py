@@ -37,7 +37,7 @@ def newfunc(request):
 		if form.is_valid():
 			funcionario = form.save(commit=False)
 			funcionario.save()
-			essages.success(request, 'Funcionário salvo com sucesso!')
+			messages.success(request, 'Funcionário salvo com sucesso!')
 	else:
 		form = FuncForm()
 
@@ -56,6 +56,7 @@ def editfunc(request, pk):
 		if form.is_valid():
 			funcionario = form.save(commit=False)
 			funcionario.save()
+			messages.success(request, 'Funcionário salvo com sucesso!')
 			return redirect('listafunc')
 	else:
 		form = FuncForm(instance=funcionario)
@@ -65,6 +66,7 @@ def editfunc(request, pk):
 def deletefunc(request,pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
 	funcionario.delete()
+	messages.success(request, 'Funcionário deletado com sucesso!')
 	return redirect('listafunc')
 
 @login_required
@@ -98,7 +100,7 @@ def relatorioespecifico(request,pk):
 @login_required
 def morefunc(request,pk):
 	funcionario = get_object_or_404(Funcionario, pk=pk)
-	essages.success(request, 'O Novo funcionário salvo com sucesso!')
+	messages.success(request, 'O Novo funcionário salvo com sucesso!')
 	return render(request, 'crudpoints/morefunc.html', {'funcionario': funcionario})
 
 
