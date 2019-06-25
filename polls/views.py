@@ -7,7 +7,8 @@ from django.shortcuts import get_object_or_404, redirect
 import operator
 from django.urls import reverse
 from .forms import questionForm, choiceForm
-from datetime import datetime   
+from datetime import datetime  
+from django.contrib import messages 
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
