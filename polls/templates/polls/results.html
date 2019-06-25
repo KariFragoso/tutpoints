@@ -1,7 +1,12 @@
 {% extends 'crudpoints/base.html' %}
 
 {% block content %}
+{% if messages %}
 
+ 				   {% for message in messages %}
+    				  <p class="{{ message.tags }}">{{ message }}</p>
+   					 {% endfor %}
+				{% endif %}
 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
             <div class="table mdl-color--white">
 <h1>{{ question.question_text }}</h1>

@@ -4,6 +4,12 @@
 
 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
             <div class="table mdl-color--white">
+            	{% if messages %}
+
+ 				   {% for message in messages %}
+    				  <p class="{{ message.tags }}">{{ message }}</p>
+   					 {% endfor %}
+				{% endif %}
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}

@@ -1,8 +1,14 @@
 {% extends 'crudpoints/base.html' %}
 
 {% block content %}
+{% if messages %}
 
-	 <div class=" mdl-cell mdl-cell--8-col mdl-shadow--2dp ">
+           {% for message in messages %}
+              <p class="{{ message.tags }}">{{ message }}</p>
+             {% endfor %}
+        {% endif %}
+
+	 <div class=" mdl-cell mdl-cell--8-col ">
           <div class="table mdl-color--white">
             <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
                <thead>

@@ -12,7 +12,7 @@
 		<h5>Entre em contato!</h5>
 		<form method="POST" class="post-form">{% csrf_token %}
 			{{ form|crispy }}
-			<button type="submit" class="save btn btn-default">Salvar</button>
+			<button type="submit" href="{% url 'obg' %}"i  class="save btn btn-default"> Salvar</button> 
 		</form>
 		<br>
 	</div>

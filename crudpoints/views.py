@@ -159,8 +159,7 @@ def contato(request):
     return render(request, 'crudpoints/contato.html', {'form': email_form})
 
 def obg(request):
-	# fazer html para a pagina que agradece o contato
-    return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")
+	return render(request, 'crudpoints/obg.html', {})
 
 def signup(request):
     if request.method == 'POST':

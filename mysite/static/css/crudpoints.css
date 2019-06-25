@@ -14,11 +14,12 @@ html, body {
  justify-content: center;
 
 
+
 }
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
 } 
 .layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
@@ -41,6 +42,9 @@ html, body {
 }
 .card-wide > .mdl-card__menu {
   color: #fff;
+}
+.mdl-mini-footer .mdl-mini-footer__right-section{
+  background-color: white-grey;
 }
 
 .drawer .mdl-menu__container {
@@ -141,8 +145,6 @@ html, body {
  padding: 0 0 0 70px;
 }
 
-
-
 .charts {
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -185,7 +187,8 @@ html, body {
 }
 .cards h3 {
   font-size: 1em;
-}
+  margin:0  ;
+} 
 .updates .mdl-card__title {
   max-height: 20px;
   background-position: 90% 100%;
@@ -194,14 +197,6 @@ html, body {
 .cards .mdl-card__actions a {
   color: #00BCD4;
   text-decoration: none;
-}
-
-.options h3 {
-  margin: 0;
-}
-
-.options h7{
-  margin:50;
 }
 
   .options ul {

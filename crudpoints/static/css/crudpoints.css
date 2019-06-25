@@ -14,11 +14,12 @@ html, body {
  justify-content: center;
 
 
+
 }
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
 } 
 .layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
@@ -32,16 +33,18 @@ html, body {
 }
 
 .card-wide.mdl-card {
-  width: 512px;
+  width: 50px;
 }
 .card-wide > .mdl-card__title {
   color: #fff;
-  height: 176px;
-  background: url('../assets/welcome_card.jpg') center / cover;
+  height: 180px;
+ 
 }
 .card-wide > .mdl-card__menu {
   color: #fff;
+
 }
+
 
 .drawer .mdl-menu__container {
   z-index: -1;
@@ -69,8 +72,8 @@ html, body {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 16px;
-  height: 151px;
+  padding: 12px;
+  height: 140px;
 }
 .avatar-dropdown {
   display: -webkit-flex;
@@ -124,24 +127,25 @@ html, body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  color: rgba(255, 255, 255, 0.56);
+  color: black;
   font-weight: 500;
 }
 .layout .navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
+  background-color: grey;
   color: #37474F;
 }
 .navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.56);
-  margin-right: 32px;
+  color: black;
+  margin-right: 0px;
   padding-right: 5px;
+  margin-left: -30px;
+  padding-bottom: 1px;
+  padding-top: -1px;
 }
 .gerar-relatorio{
  padding: 0 0 0 70px;
 }
-
-
 
 .charts {
   -webkit-align-items: center;
@@ -169,14 +173,16 @@ html, body {
           align-content: flex-start;
 
           padding-bottom: 50%;
+
 }
 .cards .separator {
-  height: 32px;
+  height: 10px;
 }
 .cards .mdl-card__title.mdl-card__title {
-  color: white;
-  font-size: 24px;
-  font-weight: 400;
+  color: black;
+  font-size: 25px;
+  font-weight: 300px;
+  
 
 }
 .cards ul {
@@ -185,23 +191,18 @@ html, body {
 }
 .cards h3 {
   font-size: 1em;
-}
+  margin:0  ;
+
+} 
 .updates .mdl-card__title {
-  max-height: 20px;
-  background-position: 90% 100%;
+  max-height: 40px;
+  background-position: 120% 120%;
   background-repeat: no-repeat;
 }
 .cards .mdl-card__actions a {
   color: #00BCD4;
   text-decoration: none;
-}
 
-.options h3 {
-  margin: 0;
-}
-
-.options h7{
-  margin:50;
 }
 
   .options ul {
@@ -212,7 +213,7 @@ html, body {
   margin: 4px 0;
 }
 .options .material-icons {
-  color: rgba(255, 255, 255, 0.89);
+  color: rgba(0, 0, 0, 0);
 
 }
 .options .mdl-card__actions {
@@ -224,4 +225,5 @@ html, body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+
 }

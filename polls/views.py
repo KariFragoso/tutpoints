@@ -55,6 +55,7 @@ def newquestion(request):
 			question = form.save(commit=False)
 			question.pub_date = datetime.now()
 			question.save()
+			messages.success(request, 'A questão foi salva com sucesso!')
 	else:
 		form = questionForm()
 
@@ -67,6 +68,7 @@ def newchoice(request):
 		if form.is_valid():
 			choice = form.save(commit=False)
 			choice.save()
+			messages.success(request, 'A opção foi salva com sucesso!')
 	else:
 		form = choiceForm()
 
@@ -86,6 +88,7 @@ def editquestion(request, pk):
 		if form.is_valid():
 			question = form.save(commit=False)
 			question.save()
+			messages.success(request, 'A questão foi editada com sucesso!')
 			return redirect('polls:list')
 	else:
 		form = questionForm(instance=question)
@@ -94,6 +97,7 @@ def editquestion(request, pk):
 def deletequestion(request,pk):
 	question = get_object_or_404(Question, pk=pk)
 	question.delete()
+	messages.success(request, 'A questão foi deletada com sucesso!')
 	return redirect('polls:list')
 
 def listchoices(request):
@@ -108,6 +112,7 @@ def editchoice(request, pk):
 		if form.is_valid():
 			choice = form.save(commit=False)
 			choice.save()
+			messages.success(request, 'A opção foi editada com sucesso!')
 			return redirect('polls:listchoices')
 	else:
 		form = choiceForm(instance=choice)
@@ -116,4 +121,5 @@ def editchoice(request, pk):
 def deletechoice(request,pk):
 	choice = get_object_or_404(Choice, pk=pk)
 	choice.delete()
+	messages.success(request, 'A opção foi deletada com sucesso!')
 	return redirect('polls:listchoices')

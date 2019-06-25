@@ -6,28 +6,44 @@
 
            <div class=" mdl-card mdl-shadow--2dp mdl-cell--12-col">
               <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text" align="center_focus_strong">Bem-Vindo</h2>
+                <h2 class="mdl-card__title-text ">Bem-Vindo</h2>
               </div>
             <div class="mdl-card__actions mdl-card--border">
              </div>
                <div class="mdl-card__menu">
 
-        </div>
-      <p><b>
+              </div>
+                 <p><b>
                     "A vitalidade é demonstrada não apenas pela persistência, mas pela capacidade de começar de novo." -F. Scott Fitzgerald
                 </b></p>
            </div>
 
-{% if user.is_authenticated %}
+           
+                <div class=" mdl-cell mdl-cell--12-col">
+                  <div class="table mdl-color--white">
+                    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" width="100%" >
+                       <thead>
+                          <tr>
+                        <h2 class="mdl-data-table__cell--non-numeric mdl-color-text--black mdl-shadow--4dp "><h2><b>Missão</b></h2></h2>
+                        </tr>
+                        <tr>
+                          <h5 class="mdl-data-table__cell--non-numeric mdl-color-text--black mdl-shadow--4dp mdl-grid--no-spacing" align="center">Oferecer serviços de Tecnologia da Informação com agilidade, comprometimento e baixo custo, agregando valor e inovação ao negócio de nossos clientes, respeitando a sociedade e o meio ambiente.</h5>
+                        </tr>
+                     </thead>
+                    </table>
+                  </div>
+                </div>
+   
+        {% if user.is_authenticated %}
           <div class=" mdl-cell mdl-cell--8-col">
           <div class="table mdl-color--white">
-            <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp " width="100%" >
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " width="100%" >
                <thead>
                   <tr>
-                <th class="mdl-data-table__cell--non-numeric ">Funcionario</th>
-                  <th>CH/semana</th>
-                  <th>Função</th>
-                  <th>Ver Mais</th>
+                <th class="mdl-data-table__cell--non-numeric mdl-color-text--black  ">Funcionario</th>
+                  <th class="mdl-color-text--black ">CH/semana</th>
+                  <th class="mdl-color-text--black ">Função</th>
+                  <th class="mdl-color-text--black ">Ver Mais</th>
                 </tr>
              </thead>
               <tbody>
@@ -45,28 +61,25 @@
 
                 {%endfor%}
               </tbody>
-
             </table>
-
 
             </div>
 
 
           </div>
 
-          <div class="cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-            <div class="updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell---col mdl-cell---col-tablet mdl-cell--12-col-desktop">
-             <div class="mdl-card__actions mdl-card--border mdl-color--purple-400">
-              <div class="mdl-card__title">
-                <p class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--black">Resultado:<b> {{resultado}}</b></p>
-              </div>
+          <div class="cards  mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--8-col-desktop mdl-grid--no-spacing">
+             <div class="mdl-card__actions mdl-card__title mdl-card--border mdl-color--grey-500 mdl-grid--no-spacing">
+               <p class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--black mdl-grid--no-spacing">Resultado:<b> {{resultado}}</b></p>
+             
              </div>
-             <h4 align="center" style="padding: 100 100px">{{pergunta}} </h4>
+             <h4 align="center" style="padding: 10 10px">{{pergunta}} </h4>
               <a class="mdl-navigation__link" href="{% url 'polls:detail' 1 %}"><i class=" material-icons" role="presentation">search</i>Vote para {{pergunta}}</a>
 
                  </div>
              </div>
-             {% endif %}
+             
           </div>
-
+{% endif %}
 {% endblock %}
